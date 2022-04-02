@@ -1,0 +1,65 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+:root {
+    --clear: whitesmoke;
+}
+body {
+    background: salmon;
+}
+header{
+    background: var(--clear);
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+}
+a {
+    text-decoration: none;
+    color: black;
+}
+/* overall header for each html element */
+h1 {
+    font-size: 60px;
+    text-align: center;
+    padding: 20px;
+}
+/* cahnge the button of the main main page point */
+button {
+    font-size: 30px;
+    display: flex;
+    margin: auto;
+    padding: 5px;
+    border-radius: 5px;
+}
+/* changing the height of the main page */
+.main {
+    margin-top: 250px;
+}
+/* affects the styling of the page on endgame.html */
+h2 {
+    font-size: 40px;
+    text-align: center;
+}
+/* adjusts the contents of the congrats area */
+.highscorebox {
+    display: flex;
+    justify-content: space-between;
+}
+/* belongs to the congrats page */
+p {
+    font-size: 20px;
+    margin-left: 400px;
+}
+.submit {
+    font-size: 15px;
+    padding: 5px;
+    border-radius: 5px;
+}
+/* high score page buttons */
+.highbutton {
+    display: flex;
+   /* justify-content: space-between; */
+    padding: 5px;
+    border-radius: 5px;
+}
