@@ -8,12 +8,12 @@
         //start timer
         //call a function to get question 
     //function to get question 
-        //need to have a place for bothe the question and answers to go in html
+        //need to have a place for both the question and answers to go in html
         //access the question @ the current index 
         //display question in html 
         //display answer (loop)
             //assign them a click handler "when click happens x happens"
-    //function for the check anser 
+    //function for the check anwser 
         //call upon the asnwers 
         //button click matches the correct answers
             //it is an if block
@@ -23,78 +23,77 @@
         //timer function countdown decrement time and rest time 
         // goes in start() function
 
-//variables that are made for it 
+//Workspace
+//select all HTML elements 
+var questionasked = document.getElementById("#question");
+var option0 = document.getElementById("#ans1");
+var option1 = document.getElementById("#ans2");
+var option2 = document.getElementById("#ans3");
+var option3 = document.getElementById("#ans4");
+var option4 = document.getElementById("#ans5");
+var timePara = document.querySelector("#timePara");
+    //global question index @ 0 
     var quiz = [
     {
-        questionOPTION:"Which disney princess is the only one who isnt a disney princess by blood or marrige?",
-        answers: { //question 0
+        title:"Which disney princess is the only one who isnt a disney princess by blood or marrige?",
+        options: { //question 0
         a: "Meridith",
         b:"Tiana",
         c: "Mulan", //right answer
         d: "Anastasia",
         e: "Ariel"
         },
-        correctanswer: "Mulan"
+        answer: "Mulan"
     },
     {
-        questionOPTION: "How many official princesses are there in total animated?",
-        answers: {//Question 1
+        title: "How many official princesses are there in total animated?",
+        options: {//Question 1
         a: "12", //rigth answer
         b: "24",
         c: "100",
         d: "48",
         e: "16",
         },
-        correctanswer: "12"
+        answer: "12"
     },
     {
-        questionOPTION: "Who is not concidered apart of the offical disney princesses?",
-        answers: { ///Question 2
+        title: "Who is not concidered apart of the offical disney princesses?",
+        options: { ///Question 2
         a: "Rapunzel",
         b: "Moana",
         c: "Aurora",
         d: "Meridith",
         e: "Elsa" //right answer
         },
-        correctanswer: "Elsa"
+        answer: "Elsa"
     },
     {
-        questionOPTION: "Which disney princess is the only one to have brothers?",
-        answers: {//Question 3
+        title: "Which disney princess is the only one to have brothers?",
+        options: {//Question 3
         a: "Snow White",
         b: "Merida", //right answer
         c: "Moana",
         d: "Pocahontas",
         e: "Tiana"
         },
-        correctanswer: "Merida"
+        answer: "Merida"
     },
     {
-        quesitonOPTION: "Which disney princess is the youngest?",
-        answers: { //Question 4
+        title: "Which disney princess is the youngest?",
+        options: { //Question 4
         a: "Aurora",
         b: "Belle",
         c: "Ariel",
         d: "Snow White", //right answer
         e: "Pocahontas"
         },
-        correctanswer: "Snow White"
+        answer: "Snow White"
     }
 ];
-var question = document.getElementById("#question");
-var option1 = document.getElementById("#ans1");
-var option1 = document.getElementById("#ans2");
-var option1 = document.getElementById("#ans3");
-var option1 = document.getElementById("#ans4");
-var option1 = document.getElementById("#ans5");
-var timePara = document.querySelector("#timePara");
+
+ //global timer how much time (assign in id: undefined)
 var timeLeft = 60;
 var timer;
-
-// function to show questions on screen 
-// function showquestions () {
-// }
-
 function countdown () {
     timePara.textContent = timeLeft
     timer = setInterval(function(){
@@ -110,3 +109,34 @@ function countdown () {
             clearInterval(timer);
         }
     }, 1000)}
+
+//start fucntion to start quiz 
+function startQuiz (){
+    countdown ();
+    showquestions();
+}
+
+//function to get question 
+function showquestions () {
+//need to have a place for both the question and answers to go in html
+var questionshown = []
+var answersshown0 = [];
+var answersshown1 = [];
+var answersshown2 = [];
+var answersshown3 = [];
+var answersshown4 = [];
+//access the question @ the current index 
+questionshown = quiz[0].title; currentIndex++;
+answersshown0 = quiz[0].options[0]; currentIndex++;
+answersshown1 = quiz[0].options[1]; currentIndex++;
+answersshown2 = quiz[0].options[2]; currentIndex++;
+answersshown3 = quiz[0].options[3]; currentIndex++;
+answersshown4 = quiz[0].options[4]; currentIndex++;
+//display question in html 
+questionasked.textContent = questionshown
+option0.textContent = answersshown0
+option1.textContent = answersshown1;
+option2.textContent = answersshown2;
+option3.textContent = answersshown3;
+option4.textContent = answersshown4
+}
