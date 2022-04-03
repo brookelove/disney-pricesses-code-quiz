@@ -32,7 +32,9 @@ var option2 = document.getElementById("#ans3");
 var option3 = document.getElementById("#ans4");
 var option4 = document.getElementById("#ans5");
 var timePara = document.querySelector("#timePara");
-var point = 0;
+var points = localstorage.getItem("points") || 0;
+var initialsBTN = document.querySelector("#initials");
+var startBTN = document.querySelector("#start");
     //global question index @ 0 
 var quiz = [
     {
@@ -106,8 +108,8 @@ function countdown () {
         timeLeft--
         } else if (timeLeft === 1){
         timePara.textContent = timeLeft + " second remaining";
-        } else {
-            clearInterval(timer);
+        } else if (time <= 0) {
+            endgame ();
         }
     }, 1000)}
 
@@ -153,6 +155,7 @@ for (i = 0; i < options.length; i++) {;
 //function for the check anwser 
 function checkanswer () {
 var truth = [];
+//call upon the asnwers 
     truth = quiz[0].answer;currentIndex++
     for (i = 0; i < answer.length; i++) {
         if ("click",options[i] === answer[i]) {
@@ -164,3 +167,26 @@ var truth = [];
         }
     }
 }
+//if the current index is the same as the array end the quiz otherwise go to next question 
+//the ending function 
+function endgame () {
+    if (timeLeft === 0) {
+        clearInterval (timeLeft)
+    }
+}
+
+startBTN.addEventListener("click", startQuiz);
+
+//reset button 
+document.querySelector("#reset").addEventListener("click", function(){
+    points = 0;
+    localStorage.setItem("points",0)
+    points.textConent = 0;
+})
+initialsBTN.addEventListener("click", function(event){
+    event.preventDefault();
+    var user = {
+        initinput: initials.ariaValueMax.trim()
+    };
+    localStorage.setItem("user", JSON.stringify(user));
+})

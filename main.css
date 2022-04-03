@@ -47,7 +47,7 @@ h2 {
     justify-content: space-between;
 }
 /* belongs to the congrats page */
-p {
+label {
     font-size: 20px;
     margin-left: 400px;
 }
