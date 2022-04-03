@@ -21,3 +21,50 @@
     //the ending function 
         //timer function countdown decrement time and rest time 
         // goes in start() function
+var quiz = {
+    questions: [
+        "Which disney princess is the only one who isnt a disney princess by blood or marrige?",
+        "How many official princesses are there in total animated?",
+        "Who is not concidered apart of the offical disney princesses?",
+        "Which disney princess is the only one to have brothers?",
+        "Which disney princess is the youngest?"
+    ],
+    answers: [
+        [ //question 0
+        "Meridith",
+        "Tiana",
+        "Mulan", //right answer
+        "Anastasia",
+        "Ariel"
+        ]
+        [ //Question 1
+        "12", //rigth answer
+        "24",
+        "100",
+        "48",
+        "16"
+         ]
+         [ ///Question 2
+         "Rapunzel",
+         "Elsa", //right answer
+         "Moana",
+         "Aurora",
+         "Meridith"
+         ]
+         [//Question 3
+         "Snow White",
+         "Moana",
+         "Merida", //right answer
+         "Pocahontas",
+         "Tiana"
+         ]
+         [ //Question 4
+         "Aurora",
+         "Belle",
+         "Ariel",
+         "Snow White", //right answer
+         "Pocahontas"
+         ]
+
+    ]
+}
