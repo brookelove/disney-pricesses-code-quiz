@@ -32,8 +32,9 @@ var option2 = document.getElementById("#ans3");
 var option3 = document.getElementById("#ans4");
 var option4 = document.getElementById("#ans5");
 var timePara = document.querySelector("#timePara");
+var point = 0;
     //global question index @ 0 
-    var quiz = [
+var quiz = [
     {
         title:"Which disney princess is the only one who isnt a disney princess by blood or marrige?",
         options: { //question 0
@@ -115,7 +116,6 @@ function startQuiz (){
     countdown ();
     showquestions();
 }
-
 //function to get question 
 function showquestions () {
 //need to have a place for both the question and answers to go in html
@@ -125,18 +125,42 @@ var answersshown1 = [];
 var answersshown2 = [];
 var answersshown3 = [];
 var answersshown4 = [];
+var truth = [];
 //access the question @ the current index 
 questionshown = quiz[0].title; currentIndex++;
-answersshown0 = quiz[0].options[0]; currentIndex++;
-answersshown1 = quiz[0].options[1]; currentIndex++;
-answersshown2 = quiz[0].options[2]; currentIndex++;
-answersshown3 = quiz[0].options[3]; currentIndex++;
-answersshown4 = quiz[0].options[4]; currentIndex++;
 //display question in html 
 questionasked.textContent = questionshown
-option0.textContent = answersshown0
+//access the options @ the current index 
+answersshown0 = quiz[0].options[0];
+answersshown1 = quiz[0].options[1];
+answersshown2 = quiz[0].options[2];
+answersshown3 = quiz[0].options[3];
+answersshown4 = quiz[0].options[4];
+//dislay answers @ the current index 
+option0.textContent = answersshown0;
 option1.textContent = answersshown1;
 option2.textContent = answersshown2;
 option3.textContent = answersshown3;
-option4.textContent = answersshown4
+option4.textContent = answersshown4;
+//display answer (loop)
+for (i = 0; i < options.length; i++) {;
+//assign them a click handler "when click happens x happens"
+    if ("click",option[i]) {
+    currentIndex++
+}
+}
+}
+//function for the check anwser 
+function checkanswer () {
+var truth = [];
+    truth = quiz[0].answer;currentIndex++
+    for (i = 0; i < answer.length; i++) {
+        if ("click",options[i] === answer[i]) {
+            currentIndex++;
+            points++;
+        } else {
+            currentIndex++;
+            timeLeft--;
+        }
+    }
 }
