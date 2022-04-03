@@ -28,7 +28,7 @@ var quiz = {
         "Who is not concidered apart of the offical disney princesses?",
         "Which disney princess is the only one to have brothers?",
         "Which disney princess is the youngest?"
-    ],
+    ], //how they are labeled in an array from 0-4
     answers: [
         [ //question 0
         "Meridith",
@@ -38,23 +38,23 @@ var quiz = {
         "Ariel"
         ]
         [ //Question 1
-        "12", //rigth answer
+        "12," //rigth answer
         "24",
         "100",
         "48",
-        "16"
+        "16",
          ]
          [ ///Question 2
          "Rapunzel",
-         "Elsa", //right answer
          "Moana",
          "Aurora",
-         "Meridith"
+         "Meridith",
+         "Elsa" //right answer
          ]
          [//Question 3
          "Snow White",
-         "Moana",
          "Merida", //right answer
+         "Moana",
          "Pocahontas",
          "Tiana"
          ]
@@ -64,7 +64,15 @@ var quiz = {
          "Ariel",
          "Snow White", //right answer
          "Pocahontas"
-         ]
+         ], 
 
+    correct: [
+        //the placement of the label in the array and the question it is associated with
+        "2", //Question and answer 0
+        "0", //Question and answer 1
+        "4", //Question and answer 2
+        "1", //Question and answer 3
+        "3", //Question and answer 4
     ]
+
 }
