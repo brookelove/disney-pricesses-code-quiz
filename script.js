@@ -82,35 +82,31 @@
     }
 ];
 var question = document.getElementById("#question");
-var option1 = document.getElementById("#ans1")
-var option1 = document.getElementById("#ans2")
-var option1 = document.getElementById("#ans3")
-var option1 = document.getElementById("#ans4")
-var option1 = document.getElementById("#ans5")
-function showquestions () {
+var option1 = document.getElementById("#ans1");
+var option1 = document.getElementById("#ans2");
+var option1 = document.getElementById("#ans3");
+var option1 = document.getElementById("#ans4");
+var option1 = document.getElementById("#ans5");
+var timePara = document.querySelector("#timePara");
+var timeLeft = 60;
+var timer;
 
-    question.textContent = questionOPTION;
-
-}
-
-
-
-
-
-
-
-
-
-
-// timePara = document.querySelector("#timePara");
-// var timer;
-// var timeleft = 60;
-
-
-// function starttimer () {
-//     timer = setInterval(function (){
-//         timeleft--;
-//         console.log(timeleft);
-//         timePara.textContent = timeleft;
-//     }, 1000)
+// function to show questions on screen 
+// function showquestions () {
 // }
+
+function countdown () {
+    timePara.textContent = timeLeft
+    timer = setInterval(function(){
+        console.log(timeLeft);
+        timeLeft--;
+        timePara.textContent = timeLeft
+        if (timeLeft > 1) {
+        timePara.texxtContent = timeLeft
+        timeLeft--
+        } else if (timeLeft === 1){
+        timePara.textContent = timeLeft + " second remaining";
+        } else {
+            clearInterval(timer);
+        }
+    }, 1000)}
