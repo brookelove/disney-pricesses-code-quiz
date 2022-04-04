@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang = "en">
     <head>
@@ -20,16 +18,32 @@
             <button id="start">Start Game</button>
         </main>
         </div>
-        <script>
-            function question () {
-                window.location.href = "question.html";
-            };
-        </script>
-        <script>
-            function highscore () {
-                window.location.href = "highscore.html";
-            };
-        </script>
-    <script src="script.js"></script>
+        <div id = "game" class="hide">
+            <h1><div class="question-container" id="question">Questions</div></h1>
+            <div class="answer-container" id="answer">
+                <button class="options" id="ans1">answer 1</button>
+                <button class="options" id="ans2">answer 2</button>
+                <button class="options" id="ans3">answer 3</button>
+                <button class="options" id="ans4">answer 4</button>
+                <button class="options" id="ans5">answer 5</button>
+            </div>
+        </div>
+        <div class="hide" id="score"></div>
+        <h1>Congrats</h1>
+            <h2>Final Score:<span id="points">0</span></h2>
+        <div class="highscorebox" id="highscorebox">
+            <label>enter initals </label>
+            <input type = "text" name="initials" id="initials" placeholder="BOB"/>
+            <button class="submit"id="submit">Submit</button>
+        </div>
+        <div class="hide" id="endpage">
+        <h1>Highscores</h1>
+        <div class="highbutton">
+            <button class="submit"id="replay">Replay</button>
+            <button class="submit" id="clear">Clear High Score</button>
+        </div>
+        </div>
+    
+    <script src="evaluate.js"></script>
     </body>
 </html>

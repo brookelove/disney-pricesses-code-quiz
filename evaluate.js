@@ -22,20 +22,25 @@
     //the ending function 
         //timer function countdown decrement time and rest time 
         // goes in start() function
-
-//Workspace
+//workspace 
 //select all HTML elements 
+var timePara = document.getElementById("#timePara");
+var startBTN = document.getElementById("#start");
+var game = document.getElementById("#game")
 var questionasked = document.getElementById("#question");
 var option0 = document.getElementById("#ans1");
 var option1 = document.getElementById("#ans2");
 var option2 = document.getElementById("#ans3");
 var option3 = document.getElementById("#ans4");
 var option4 = document.getElementById("#ans5");
-var timePara = document.querySelector("#timePara");
-var points = document.querySelector("#finalscore")
-points = localStorage.getItem("points") || 0;
-var initialsBTN = document.querySelector("#initials");
-var startBTN = document.querySelector("#start");
+var score = document.getElementById("#score");
+var points = document.getElementById("#points");
+var initials = document.getElementById("#initials");
+var submitBTN = document.getElementById("#submit");
+var endpage = document.getElementById("#endpage")
+var replayBTN = document.getElementById("#replay");
+var clearBTN = document.getElementById("#clear");
+
 //global question index @ 0 
 var quiz = [
     {
@@ -94,100 +99,98 @@ var quiz = [
         answer: "Snow White"
     }
 ];
-
- //global timer how much time (assign in id: undefined)
-var timeLeft = 60;
+//global timer how much time (assign in id: undefined)
 var timer;
 function countdown () {
-    timePara.textContent = timeLeft
-    timer = setInterval(function(){
-        console.log(timeLeft);
-        timeLeft--;
-        timePara.textContent = timeLeft
-        if (timeLeft > 1) {
-        timePara.texxtContent = timeLeft
-        timeLeft--
-        } else if (timeLeft === 1){
-        timePara.textContent = timeLeft + " second remaining";
-        } else if (time <= 0) {
-            endgame ();
+var timeLeft = "60";
+ timer = setInterval(()=>{
+     timeLeft--
+     if(timeLeft > 1){
+         timePara.textContent = timeLeft;
+         timeLeft--
+     } else if (timeLeft === 1) {
+         timePara.textContent = timeLeft + "second remaining"
         }
-    }, 1000)}
+ }, 1000)
+}
 
-//start fucntion to start quiz 
-function startQuiz (){
-    countdown ();
-    showquestions();
+// startBTN.addEventListener("click");
+    //start fucntion to start quiz 
+    function startQuiz (){
+
+    }
+
+    function showquestions () {
+        //need to have a place for both the question and answers to go in html
+        var questionshown = []
+        var answersshown0 = [];
+        var answersshown1 = [];
+        var answersshown2 = [];
+        var answersshown3 = [];
+        var answersshown4 = [];
+        var truth = [];
+        //access the question @ the current index 
+        questionshown = quiz[0].title; currentIndex++;
+        //display question in html 
+        questionasked.textContent = questionshown
+        //access the options @ the current index 
+        answersshown0 = quiz[0].options[0];
+        answersshown1 = quiz[0].options[1];
+        answersshown2 = quiz[0].options[2];
+        answersshown3 = quiz[0].options[3];
+        answersshown4 = quiz[0].options[4];
+        //dislay answers @ the current index 
+        option0.textContent = answersshown0;
+        option1.textContent = answersshown1;
+        option2.textContent = answersshown2;
+        option3.textContent = answersshown3;
+        option4.textContent = answersshown4;
+        //display answer (loop)
+        for (i = 0; i < options.length; i++) {;
+        //assign them a click handler "when click happens x happens"
+            if ("click",option[i]) {
+            currentIndex++
+        }
+        }
 }
-//function to get question 
-function showquestions () {
-//need to have a place for both the question and answers to go in html
-var questionshown = []
-var answersshown0 = [];
-var answersshown1 = [];
-var answersshown2 = [];
-var answersshown3 = [];
-var answersshown4 = [];
-var truth = [];
-//access the question @ the current index 
-questionshown = quiz[0].title; currentIndex++;
-//display question in html 
-questionasked.textContent = questionshown
-//access the options @ the current index 
-answersshown0 = quiz[0].options[0];
-answersshown1 = quiz[0].options[1];
-answersshown2 = quiz[0].options[2];
-answersshown3 = quiz[0].options[3];
-answersshown4 = quiz[0].options[4];
-//dislay answers @ the current index 
-option0.textContent = answersshown0;
-option1.textContent = answersshown1;
-option2.textContent = answersshown2;
-option3.textContent = answersshown3;
-option4.textContent = answersshown4;
-//display answer (loop)
-for (i = 0; i < options.length; i++) {;
-//assign them a click handler "when click happens x happens"
-    if ("click",option[i]) {
-    currentIndex++
-}
-}
-}
+
 //function for the check anwser 
 function checkanswer () {
-var truth = [];
-//call upon the asnwers 
-    truth = quiz[0].answer;currentIndex++
-    for (i = 0; i < answer.length; i++) {
-        if ("click",options[i] === answer[i]) {
-            currentIndex++;
-            points++;
-        } else {
-            currentIndex++;
-            timeLeft--;
+    var truth = [];
+    //call upon the asnwers 
+        truth = quiz[0].answer;currentIndex++
+        for (i = 0; i < answer.length; i++) {
+            if ("click",options[i] === answer[i]) {
+                currentIndex++;
+                points++;
+            } else {
+                currentIndex++;
+                timeLeft--;
+            }
         }
     }
-}
-//if the current index is the same as the array end the quiz otherwise go to next question 
-//the ending function 
+
+
 function endgame () {
     if (timeLeft === 0) {
         clearInterval (timeLeft)
     }
+    points = 0
+    localStorage.setItem("points", 0)
 }
 
- startBTN.addEventListener("click", startQuiz);
+// initialsBTN.addEventListener("click", function (event){
+//     points = 0;
+//     localStorage.setItem("points", 0)
+//     points.textContent = 0;
+// })
+// //reset button 
+// replayBTN.addEventListener("click", function(event){
+//     event.preventDefault();
+//     var user = {
+        
+//     }
+// })
 
-//reset button 
-document.querySelector("#reset").addEventListener("click", function(){
-    points = 0;
-    localStorage.setItem("points",0)
-    points.textConent = 0;
-})
-initialsBTN.addEventListener("click", function(event){
-    event.preventDefault();
-    var user = {
-        initinput: initials.ariaValueMax.trim()
-    };
-    localStorage.setItem("user", JSON.stringify(user));
-})
+
+
