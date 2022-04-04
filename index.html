@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width = device-width, initial-scale = 1.0" />
+    <link rel="stylesheet" href="main.css" />
+    <title>Disney Princesses Quiz</title>
+  </head>
+  <body>
+    <header>
+      <h4 class="higscores">View Highscores</h4>
+      <h4><span id="timePara">60</span> seconds left</h4>
+    </header>
+    <div class="main">
+      <main>
+        <h1>Disney Princesses Quiz</h1>
+        <button id="start">Start Game</button>
+      </main>
+    </div>
+    <div id="game" class="hide">
+      <h1><div class="question-container" id="question">Questions</div></h1>
+      <div class="answer-container" id="answer">
+        <button class="options" id="ans1">answer 1</button>
+        <button class="options" id="ans2">answer 2</button>
+        <button class="options" id="ans3">answer 3</button>
+        <button class="options" id="ans4">answer 4</button>
+        <button class="options" id="ans5">answer 5</button>
+      </div>
+    </div>
+    <div class="hide" id="score"></div>
+    <h1>Congrats</h1>
+    <h2>Final Score:<span id="points">0</span></h2>
+    <div class="highscorebox" id="highscorebox">
+      <label>enter initals </label>
+      <input type="text" name="initials" id="initials" placeholder="BOB" />
+      <button class="submit" id="submit">Submit</button>
+    </div>
+    <div class="hide" id="endpage">
+      <h1>Highscores</h1>
+      <div class="highbutton">
+        <button class="submit" id="replay">Replay</button>
+        <button class="submit" id="clear">Clear High Score</button>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
