@@ -35,7 +35,8 @@ var option3 = document.getElementById("ans4");
 var option4 = document.getElementById("ans5");
 var score = document.getElementById("score");
 var points = document.getElementById("points");
-var initials = document.getElementById("initials");
+var initialsInput = document.getElementById("initials");
+var msgDiv = document.getElementById("msg");
 var submitBTN = document.getElementById("submit");
 var endpage = document.getElementById("endpage")
 var replayBTN = document.getElementById("replay");
@@ -174,8 +175,12 @@ function checkanswer () {
             }
         }
     }
-
-
+function correct () {
+    points+=10
+}
+function penalty() {
+timeLeft-=10;
+}
 function endgame () {
     if (timeLeft === 0) {
         clearInterval (timeLeft)
@@ -186,18 +191,23 @@ function endgame () {
 
 startBTN.addEventListener('click', startQuiz)
 
-// initialsBTN.addEventListener("click", function (event){
-//     points = 0;
-//     localStorage.setItem("points", 0)
-//     points.textContent = 0;
-// })
-// //reset button 
-// replayBTN.addEventListener("click", function(event){
-//     event.preventDefault();
-//     var user = {
-        
-//     }
-// })
+//submit button 
+ function renderMessage () {
+     var user = localStorage.getItem("highscores");
+     if (!user) {
+         return;
+     }
+ }
+submitBTN.addEventListener("click", function(event) {
+    event.preventDefault();
 
+     var user = document.getElementById("initials")
+    var newScore = {
+        initals: initialsInput.value,
+        points:points.textContent
+    }
 
-
+   localStorage.setItem("user",JSON.stringify(newScore))
+   renderMessage()
+})
+// //reset button

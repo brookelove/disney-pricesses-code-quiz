@@ -9,7 +9,7 @@
   </head>
   <body>
     <header>
-      <h4 class="higscores">View Highscores</h4>
+      <h4 class="higscores"> <a href="highscore.html">View Highscores</a></h4>
       <h4><span id="timePara">60</span> seconds left</h4>
     </header>
     <div class="main">
@@ -32,18 +32,11 @@
     <h1>Congrats</h1>
     <h2>Final Score:<span id="points">0</span></h2>
     <div class="highscorebox" id="highscorebox">
-      <label>enter initals </label>
+      <label for=" initals">enter initals </label>
       <input type="text" name="initials" id="initials" placeholder="BOB" />
+      <div id="msg"></div>
       <button class="submit" id="submit">Submit</button>
     </div>
-    <div class="hide" id="endpage">
-      <h1>Highscores</h1>
-      <div class="highbutton">
-        <button class="submit" id="replay">Replay</button>
-        <button class="submit" id="clear">Clear High Score</button>
-      </div>
-    </div>
-
     <script src="script.js"></script>
   </body>
 </html>
