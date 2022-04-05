@@ -218,6 +218,7 @@ highscoresresults.textContent = user
  }
 submitBTN.addEventListener("click", function(event) {
     event.preventDefault();
+    location.assign('./highscore.html');
     var existingScores = localStorage.getItem('highscores') || [];
     var newScore = {
         initals: initialsInput.value,
@@ -228,7 +229,7 @@ submitBTN.addEventListener("click", function(event) {
       var response = "Thanks for playing! You have collected  " + newScore.value + "magical points! To see all the points collected go to view highscore!";
       submissionResponse.textContent = response;
  highscores = [{initials: AS, score: 0}];
-   window.location.href = 'highscore.html';
+
    renderMessage()
 })
 
