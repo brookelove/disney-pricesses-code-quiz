@@ -12,30 +12,32 @@
       <h4 class="higscores"> <a href="highscore.html">View Highscores</a></h4>
       <h4><span id="timePara">60</span> seconds left</h4>
     </header>
-    <div class="main">
+    <div id="main">
       <main>
         <h1>Disney Princesses Quiz</h1>
+        <img src="./assets/disney castle.png" alt="disney castle">
         <button id="start">Start Game</button>
       </main>
     </div>
     <div id="game" class="hide">
       <h1><div class="question-container" id="question">Questions</div></h1>
       <div class="answer-container" id="answer">
-        <button class="options" id="ans1">answer 1</button>
-        <button class="options" id="ans2">answer 2</button>
-        <button class="options" id="ans3">answer 3</button>
-        <button class="options" id="ans4">answer 4</button>
-        <button class="options" id="ans5">answer 5</button>
+        <button class="options" id="ans1" value="">answer 1</button>
+        <button class="options" id="ans2" value="">answer 2</button>
+        <button class="options" id="ans3"value="">answer 3</button>
+        <button class="options" id="ans4"value="">answer 4</button>
+        <button class="options" id="ans5"value="">answer 5</button>
       </div>
-    </div>
-    <div class="hide" id="score"></div>
-    <h1>Congrats</h1>
-    <h2>Final Score:<span id="points">0</span></h2>
-    <div class="highscorebox" id="highscorebox">
-      <label for=" initals">enter initals </label>
-      <input type="text" name="initials" id="initials" placeholder="BOB" />
-      <div id="msg"></div>
-      <button class="submit" id="submit">Submit</button>
+    <div id="correct/wrong" class="hide"></div>
+    <div id="congrats"class="hide"></div>
+            <h1>Congrats</h1>
+            <h2>Final Score:<span id="points">0</span></h2>
+        <div class="highscorebox" id="highscorebox">
+            <label for=" initals">enter initals </label>
+            <input type="text" name="initials" id="initials" placeholder="BOB" />
+            <div id="msg"></div>
+        <button class="submit" id="submit">Submit</button>
+        <h3 id="response"></h3>
     </div>
     <script src="script.js"></script>
   </body>

@@ -26,21 +26,26 @@
 //select all HTML elements 
 var timePara = document.getElementById("timePara");
 var startBTN = document.getElementById("start");
-var game = document.getElementById("game")
+var mainDiv = document.getElementById("main")
+var gameDiv = document.getElementById("game")
 var questionasked = document.getElementById("question");
 var option0 = document.getElementById("ans1");
 var option1 = document.getElementById("ans2");
 var option2 = document.getElementById("ans3");
 var option3 = document.getElementById("ans4");
 var option4 = document.getElementById("ans5");
-var score = document.getElementById("score");
+var correct = document.getElementById("correct/wrong")
+var congratsDiv = document.getElementById("congrats");
 var points = document.getElementById("points");
 var initialsInput = document.getElementById("initials");
 var msgDiv = document.getElementById("msg");
 var submitBTN = document.getElementById("submit");
+var submissionResponse = document.getElementById("response")
 var endpage = document.getElementById("endpage")
 var replayBTN = document.getElementById("replay");
 var clearBTN = document.getElementById("clear");
+var highscoresresults = document.getElementById("highscores")
+var allOptions = document.getElementsByClassName("options");
 
 //global question index @ 0 
 var quiz = [
@@ -68,7 +73,7 @@ var quiz = [
     },
     {
         title: "Who is not concidered apart of the offical disney princesses?",
-        options: { ///Question 2
+        options: { //Question 2
         a: "Rapunzel",
         b: "Moana",
         c: "Aurora",
@@ -102,6 +107,7 @@ var quiz = [
 ];
 //global timer how much time (assign in id: undefined)
 var timer;
+var timeLeft;
 // set an if statment that wil say of the button is running do not restart the time 
 function countdown () {
 var timeLeft = 60;
@@ -117,71 +123,78 @@ var timeLeft = 60;
         }
  }, 1000)
 }
-
 // startBTN.addEventListener("click");
     //start fucntion to start quiz 
-    function startQuiz (){
-        countdown();
-
-
+function startQuiz (){
+     mainDiv.setAttribute("class", "hide")
+     gameDiv.setAttribute("class", "")
+     congratsDiv.setAttribute("class", "hide")
+    countdown();
+    showquestions();
+     checkanswer();
     }
+var currentIndex = 0;
+function showquestions () {
+//need to have a place for both the question and answers to go in html
+//access the question @ the current index 
+    var currentQuestion = quiz[currentIndex];
+    var questionshown = currentQuestion.title;
+//display question in html 
+    questionasked.textContent = questionshown;
+//access the options @ the current index 
+    var answerOptions = currentQuestion.options;
+    var answersshown0 = answerOptions['a'];
+    var answersshown1 = answerOptions['b'];
+    var answersshown2 = answerOptions['c'];
+    var answersshown3 = answerOptions['d'];
+    var answersshown4 = answerOptions['e'];
+//dislay answers @ the current index 
+    option0.textContent = answersshown0;
+    option0.setAttribute('value', answersshown0);
+    option1.textContent = answersshown1;
+    option1.setAttribute('value', answersshown1);
+    option2.textContent = answersshown2;
+    option2.setAttribute('value', answersshown2);
+    option3.textContent = answersshown3;
+    option3.setAttribute('value', answersshown3);
+    option4.textContent = answersshown4;
+    option4.setAttribute('value', answersshown4);
+//display answer (loop)
+    for (i = 0; i < allOptions.length; i++) {;
+ //assign them a click handler "when click happens x happens"
+    allOptions[i].addEventListener("click", function(event) {
+        checkanswer(event.target.value);
+    });
 
-    function showquestions () {
-        //need to have a place for both the question and answers to go in html
-        var questionshown = []
-        var answersshown0 = [];
-        var answersshown1 = [];
-        var answersshown2 = [];
-        var answersshown3 = [];
-        var answersshown4 = [];
-        var truth = [];
-        //access the question @ the current index 
-        questionshown = quiz[0].title; currentIndex++;
-        //display question in html 
-        questionasked.textContent = questionshown
-        //access the options @ the current index 
-        answersshown0 = quiz[0].options[0];
-        answersshown1 = quiz[0].options[1];
-        answersshown2 = quiz[0].options[2];
-        answersshown3 = quiz[0].options[3];
-        answersshown4 = quiz[0].options[4];
-        //dislay answers @ the current index 
-        option0.textContent = answersshown0;
-        option1.textContent = answersshown1;
-        option2.textContent = answersshown2;
-        option3.textContent = answersshown3;
-        option4.textContent = answersshown4;
-        //display answer (loop)
-        for (i = 0; i < options.length; i++) {;
-        //assign them a click handler "when click happens x happens"
-            if ("click",option[i]) {
-            currentIndex++
-        }
-        }
 }
-
+points = 0;
 //function for the check anwser 
-function checkanswer () {
-    var truth = [];
-    //call upon the asnwers 
-        truth = quiz[0].answer;currentIndex++
-        for (i = 0; i < answer.length; i++) {
-            if ("click",options[i] === answer[i]) {
-                currentIndex++;
-                points++;
-            } else {
-                currentIndex++;
-                timeLeft--;
-            }
+function checkanswer (clicked) {
+//call upon the asnwers 
+    if (clicked === quiz[currentIndex].answer) {
+    // add points
+        points+=10;
+    //correct function
+     correct.textContent = "correct";
+     correct.setAttribute = ("class", "correct");
+     currentIndex++
+    } else {
+            // deduct time
+        timeLeft-=10;
+            //incorrect function
+         correct.textContent = "incorrect";
+         correct.setAttribute = ("class", "incorrect");
+         currentIndex++
         }
-    }
-function correct () {
-    points+=10
-}
-function penalty() {
-timeLeft-=10;
+        if (currentIndex === quiz.length-1){
+            endgame()
+        } else {
+            showquestions();
+        }
 }
 function endgame () {
+    gameDiv.setAttribute("class", "hide")
+    congratsDiv.setAttribute("class", "")
     if (timeLeft === 0) {
         clearInterval (timeLeft)
     }
@@ -189,25 +202,27 @@ function endgame () {
     localStorage.setItem("points", 0)
 }
 
-startBTN.addEventListener('click', startQuiz)
-
 //submit button 
  function renderMessage () {
      var user = localStorage.getItem("highscores");
      if (!user) {
          return;
      }
+highscoresresults.textContent = user
  }
 submitBTN.addEventListener("click", function(event) {
     event.preventDefault();
-
-     var user = document.getElementById("initials")
+    var existingScores = localStorage.getItem('highscores') || [];
     var newScore = {
         initals: initialsInput.value,
-        points:points.textContent
+        score: points.textContent
     }
-
-   localStorage.setItem("user",JSON.stringify(newScore))
+    existingScores.push(newScore);
+    localStorage.setItem("highscores", JSON.stringify(existingScores));
+      var response = "Thanks for playing! You have collected  " + newScore.value + "magical points! To see all the points collected go to view highscore!";
+      submissionResponse.textContent = response;
+ highscores = [{initials: AS, score: 0}];
+   window.location.href = 'highscore.html';
    renderMessage()
 })
-// //reset button
+}
