@@ -115,15 +115,13 @@ var timeLeft = 60;
      timeLeft--
      if(timeLeft > 1){
          timePara.textContent = timeLeft;
-         console.log(timeLeft)
          timeLeft--
      } else if (timeLeft === 1) {
          timePara.textContent = timeLeft + "second remaining"
-         console.log(timeLeft)
         }
  }, 1000)
 }
-// startBTN.addEventListener("click");
+ startBTN.addEventListener("click", startQuiz);
     //start fucntion to start quiz 
 function startQuiz (){
      mainDiv.setAttribute("class", "hide")
@@ -131,9 +129,10 @@ function startQuiz (){
      congratsDiv.setAttribute("class", "hide")
     countdown();
     showquestions();
-     checkanswer();
     }
 var currentIndex = 0;
+
+
 function showquestions () {
 //need to have a place for both the question and answers to go in html
 //access the question @ the current index 
@@ -160,17 +159,18 @@ function showquestions () {
     option4.textContent = answersshown4;
     option4.setAttribute('value', answersshown4);
 //display answer (loop)
-    for (i = 0; i < allOptions.length; i++) {;
- //assign them a click handler "when click happens x happens"
-    allOptions[i].addEventListener("click", function(event) {
-        checkanswer(event.target.value);
-    });
 
-}
+ //assign them a click handler "when click happens x happens"
+//     allOptions[i]("click", function(event) {
+//         console.log(event.target);
+//         checkanswer(event.target.value);
+//     });
+ }
 points = 0;
 //function for the check anwser 
 function checkanswer (clicked) {
 //call upon the asnwers 
+    console.log(quiz[currentIndex].answer)
     if (clicked === quiz[currentIndex].answer) {
     // add points
         points+=10;
@@ -186,12 +186,18 @@ function checkanswer (clicked) {
          correct.setAttribute = ("class", "incorrect");
          currentIndex++
         }
-        if (currentIndex === quiz.length-1){
+        if (currentIndex === quiz.length){
             endgame()
         } else {
             showquestions();
         }
 }
+option0.addEventListener('click',checkanswer)
+option1.addEventListener('click',checkanswer)
+option2.addEventListener('click',checkanswer)
+option3.addEventListener('click',checkanswer)
+option4.addEventListener('click',checkanswer)
+
 function endgame () {
     gameDiv.setAttribute("class", "hide")
     congratsDiv.setAttribute("class", "")
@@ -225,4 +231,3 @@ submitBTN.addEventListener("click", function(event) {
    window.location.href = 'highscore.html';
    renderMessage()
 })
-}
