@@ -17,9 +17,9 @@ header{
     font-size: 30px;
     color: goldenrod;
 }
- /* .hide {
+ .hide {
     display: none;
-} */
+}
 a {
     text-decoration: none;
     color: goldenrod;

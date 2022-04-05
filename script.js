@@ -131,8 +131,6 @@ function startQuiz (){
     showquestions();
     }
 var currentIndex = 0;
-
-
 function showquestions () {
 //need to have a place for both the question and answers to go in html
 //access the question @ the current index 
@@ -166,14 +164,15 @@ function showquestions () {
 //         checkanswer(event.target.value);
 //     });
  }
-points = 0;
+var score = 0;
 //function for the check anwser 
-function checkanswer (clicked) {
+function checkanswer (event) {
 //call upon the asnwers 
+console.log(event.target.textContent)
     console.log(quiz[currentIndex].answer)
-    if (clicked === quiz[currentIndex].answer) {
+    if (event.target.textContent === quiz[currentIndex].answer) {
     // add points
-        points+=10;
+        score = score+10;
     //correct function
      correct.textContent = "correct";
      correct.setAttribute = ("class", "correct");
@@ -187,7 +186,7 @@ function checkanswer (clicked) {
          currentIndex++
         }
         if (currentIndex === quiz.length){
-            endgame()
+            endgame();
         } else {
             showquestions();
         }
@@ -199,15 +198,16 @@ option3.addEventListener('click',checkanswer)
 option4.addEventListener('click',checkanswer)
 
 function endgame () {
+    console.log(score)
     gameDiv.setAttribute("class", "hide")
     congratsDiv.setAttribute("class", "")
     if (timeLeft === 0) {
         clearInterval (timeLeft)
+    } else if (currentIndex === quiz.length) {
+        clearInterval(timer);
     }
-    points = 0
-    localStorage.setItem("points", 0)
+    localStorage.setItem("points", score)
 }
-
 //submit button 
  function renderMessage () {
      var user = localStorage.getItem("highscores");
@@ -231,3 +231,5 @@ submitBTN.addEventListener("click", function(event) {
    window.location.href = 'highscore.html';
    renderMessage()
 })
+
+//save the score and the initals and score together 
