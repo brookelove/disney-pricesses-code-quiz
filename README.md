@@ -8,8 +8,12 @@ To begin my project i first wireframed whoat I wanted everything to loook like. 
 
 ##Mock up 
 After completting the code with a backbone of HTML, CSS, and a whole lot of pixie dust. I came up with this!
+![Screen Shot 2022-04-05 at 6 02 05 PM](https://user-images.githubusercontent.com/98351351/161875472-8eb0fff6-2ce3-4ed6-8720-b32bcb4c7977.png)
+
 
 ##Summary
 This was a hard assignment because I did not completely understand javaScript. It felt like I was faking it until I made it. Durning that time I realized that after fixing a error and, then I think what really motivated me to conduct this project were the small accomplishments that I made. Understanding smaller pieces to the whole part of javascript and then go from there. 
 
 ##Links to my Quiz
+https://github.com/brookelove/disney-pricesses-code-quiz
+https://brookelove.github.io/disney-pricesses-code-quiz/
