@@ -8,7 +8,7 @@ var scores = JSON.parse(localStorage.getItem('highscores')); // it's an array
 
 function renderscores () {
 // loop over array to render scores
-for (i = 0;i < scores.length;i++) {
+for (i = 0;i < scores.length; i++) {
     // var amounts = amount[i]
     var newScore = scores[i];  // {initials: '', points: 0}
 
@@ -19,12 +19,13 @@ for (i = 0;i < scores.length;i++) {
      highscoresresults.appendChild(listItem);
 }
 }
-
 renderscores()
 replayBTN.addEventListener("click", function(event){
+    event.preventDefault();
     location.assign('./index.html')
 })
 
 clearBTN.addEventListener("click", function(event){
-    localStorage.removeItem("highscoreresults");
+    localStorage.clear("listItem");
+    listItem.textContent = ""
 })
