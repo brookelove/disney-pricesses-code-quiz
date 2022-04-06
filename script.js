@@ -207,6 +207,8 @@ function endgame () {
         clearInterval(timer);
     }
     localStorage.setItem("points", score)
+    points.textContent = score
+
 }
 //submit button 
  function renderMessage () {
@@ -219,16 +221,16 @@ highscoresresults.textContent = user
 submitBTN.addEventListener("click", function(event) {
     event.preventDefault();
     location.assign('./highscore.html');
+    var currentPoints = localStorage.getItem('points');
     var existingScores = localStorage.getItem('highscores') || [];
     var newScore = {
-        initals: initialsInput.value,
-        score: points.textContent
+        initials: initialsInput.value,
+        score: currentPoints
     }
+    
     existingScores.push(newScore);
     localStorage.setItem("highscores", JSON.stringify(existingScores));
-      var response = "Thanks for playing! You have collected  " + newScore.value + "magical points! To see all the points collected go to view highscore!";
-      submissionResponse.textContent = response;
- highscores = [{initials: AS, score: 0}];
+      location.assign('./highscore.html');
 
    renderMessage()
 })

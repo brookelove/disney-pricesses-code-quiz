@@ -4,20 +4,28 @@ var clearBTN = document.getElementById("clear");
 var highcount = document.getElementById("highscorecount")
 var amount = []
 var scores = JSON.parse(localStorage.getItem('highscores')); // it's an array
+// [{ initials: 'AAS', points: 10 }]
+
 function renderscores () {
-    highscoresresults.innerHTML = "";
-    highcount.textContent = amount.length
+    // highscoresresults.innerHTML = "";
+    // highcount.textContent = amount.length
+
 
 // loop over array to render scores
 for (i = 0;i < scores.length;i++) {
-    var amounts = amount[i]
+    // var amounts = amount[i]
+    var newScore = scores[i];  // {initials: '', points: 0}
 
+    console.log(newScore.initials, newScore.score);
     var listItem = document.createElement("li");
-     listItem.textContent = newScore.initials + ' - ' + newScore.points;
-     listItem.setAttribute("data-inddex", i);
+     listItem.textContent = newScore.initials + ' - ' + newScore.score;
+     listItem.setAttribute("data-index", i);
+     listItem.addClass("scorelist")
      highscoresresults.appendChild(listItem);
 }
 }
+
+renderscores()
 replayBTN.addEventListener("click", function(event){
     location.assign('./index.html')
 })
