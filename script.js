@@ -211,18 +211,18 @@ function endgame () {
 
 }
 //submit button 
- function renderMessage () {
-     var user = localStorage.getItem("highscores");
-     if (!user) {
-         return;
-     }
-highscoresresults.textContent = user
- }
+//  function renderMessage () {
+//      var user = localStorage.getItem("highscores");
+//      if (!user) {
+//          return;
+//      }
+// highscoresresults.textContent = user
+//  }
 submitBTN.addEventListener("click", function(event) {
     event.preventDefault();
     location.assign('./highscore.html');
     var currentPoints = localStorage.getItem('points');
-    var existingScores = localStorage.getItem('highscores') || [];
+    var existingScores = localStorage.getItem('highscores')|| [];
     var newScore = {
         initials: initialsInput.value,
         score: currentPoints
@@ -232,7 +232,7 @@ submitBTN.addEventListener("click", function(event) {
     localStorage.setItem("highscores", JSON.stringify(existingScores));
       location.assign('./highscore.html');
 
-   renderMessage()
+//    renderMessage()
 })
 
 //save the score and the initals and score together 

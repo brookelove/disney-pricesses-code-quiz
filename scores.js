@@ -25,7 +25,7 @@ replayBTN.addEventListener("click", function(event){
     location.assign('./index.html')
 })
 
-clearBTN.addEventListener("click", function(event){
-    localStorage.clear("listItem");
-    listItem.textContent = ""
-})
+// clearBTN.addEventListener("click", function(event){
+//     localStorage.clear("listItem");
+//     listItem = 0;
+// })
