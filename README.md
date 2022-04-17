@@ -6,6 +6,11 @@ This will be a quiz on disney princess that even you might not be able to get ri
 <img width="915" alt="Screen Shot 2022-04-02 at 8 01 14 PM" src="https://user-images.githubusercontent.com/98351351/161687593-f88521c2-6763-46e9-89a3-19b96e3939ef.png">
 To begin my project i first wireframed whoat I wanted everything to loook like. I like for my wireframes to be pretty open to color-wise but plan out where everythign ultimatly lies in my website. The overall layout would be to be able to start the quiz and go through the qustions and end page without having a problem. 
 
+## Technology Used 
+- HTML 
+- CSS 
+- JS
+- 
 ## Mock up 
 After completting the code with a backbone of HTML, CSS, and a whole lot of pixie dust. I came up with this!
 ![Screen Shot 2022-04-05 at 6 02 05 PM](https://user-images.githubusercontent.com/98351351/161875472-8eb0fff6-2ce3-4ed6-8720-b32bcb4c7977.png)
